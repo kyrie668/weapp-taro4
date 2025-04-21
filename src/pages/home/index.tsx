@@ -1,8 +1,7 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { View, Text, Image } from "@tarojs/components";
 import { useDidShow } from "@tarojs/taro";
 import { TrendArrow, Cell } from "@nutui/nutui-react-taro";
-import { Success, Failure } from "@nutui/icons-react-taro";
 import "./index.less";
 
 export default function Home() {

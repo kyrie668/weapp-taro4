@@ -3,8 +3,7 @@ import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import devConfig from "./dev";
 import prodConfig from "./prod";
 
-
-const { UnifiedWebpackPluginV5 } = require('weapp-tailwindcss/webpack')
+const { UnifiedWebpackPluginV5 } = require("weapp-tailwindcss/webpack");
 // https://taro-docs.jd.com/docs/next/config#defineconfig-辅助函数
 export default defineConfig<"webpack5">(async (merge, { command, mode }) => {
   const baseConfig: UserConfigExport<"webpack5"> = {
@@ -56,18 +55,21 @@ export default defineConfig<"webpack5">(async (merge, { command, mode }) => {
           plugin: {
             install: {
               plugin: UnifiedWebpackPluginV5,
-              args: [{
-                appType: 'taro',
-                // 下面个配置，会开启 rem -> rpx 的转化
-                rem2rpx: true
-              }]
-            }
-          }
+              args: [
+                {
+                  appType: "taro",
+                  rem2rpx: true,
+                },
+              ],
+            },
+          },
         });
         chain.resolve.plugin("tsconfig-paths").use(TsconfigPathsPlugin);
       },
-      hot: true,
       enableSourceMap: true,
+      optimizeMainPackage: {
+        enable: true,
+      },
     },
     h5: {
       publicPath: "/",
@@ -98,7 +100,6 @@ export default defineConfig<"webpack5">(async (merge, { command, mode }) => {
         chain.resolve.plugin("tsconfig-paths").use(TsconfigPathsPlugin);
       },
       enableSourceMap: true,
-      hot: true,
     },
     rn: {
       appName: "taroDemo",

@@ -1,8 +1,10 @@
-export default {
+export default defineAppConfig({
   pages: [
     'pages/home/index',
     'pages/about/index',
-    'pages/me/index'
+    'pages/me/index',
+    'pages/index/index',
+    'pages/upload/index'
   ],
   window: {
     backgroundTextStyle: 'light',
@@ -33,7 +35,13 @@ export default {
         text: '我的',
         iconPath: 'assets/icons/me.png',
         selectedIconPath: 'assets/icons/me-active.png'
+      },
+      {
+        pagePath: 'pages/upload/index',
+        text: '接口',
+        iconPath: 'assets/icons/about.png',
+        selectedIconPath: 'assets/icons/about-active.png'
       }
     ]
   }
-}
+})
